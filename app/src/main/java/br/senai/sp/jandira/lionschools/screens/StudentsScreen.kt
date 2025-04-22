@@ -1,6 +1,5 @@
 package br.senai.sp.jandira.lionschools.screens
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,36 +16,28 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.senai.sp.jandira.lionschools.R
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CoursesScreen() {
+fun StudentsScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -70,7 +61,9 @@ fun CoursesScreen() {
                         .width(50.dp)
                         .height(50.dp)
                 )
-                Column() {
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
                     Text(
                         text = stringResource(R.string.lion_name),
                         fontSize = 15.sp,
@@ -86,6 +79,25 @@ fun CoursesScreen() {
                         color = Color(0xFF3347B0)
                     )
                 }
+                Card(
+                    modifier = Modifier
+                        .size(45.dp),
+                    shape = RoundedCornerShape(50.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(color = Color(0xFFFFC23D)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "DS",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 20.sp,
+                            color = Color(0xFF3347B0)
+                        )
+                    }
+                }
             }
             HorizontalDivider(
                 modifier = Modifier
@@ -96,16 +108,11 @@ fun CoursesScreen() {
                 value = "",
                 onValueChange = {},
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(45.dp),
+                    .fillMaxWidth(),
                 shape = RoundedCornerShape(50.dp),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = Color(0xFFFFC23D),
-                ),
                 label = {
                     Text(
-                        modifier = Modifier.fillMaxHeight(),
-                        text = stringResource(R.string.label_courses),
+                        text = stringResource(R.string.students),
                         fontSize = 14.sp
                     )
                 },
@@ -123,20 +130,90 @@ fun CoursesScreen() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 15.dp, start = 10.dp),
+                    .padding(top = 25.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Card(
+                    modifier = Modifier
+                        .height(28.dp)
+                        .weight(1f),
+                    shape = RoundedCornerShape(50.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(color = Color(0xFF3347B0)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = stringResource(R.string.all_students),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp,
+                            color = Color.White
+                        )
+                    }
+                }
+
+                Card(
+                    modifier = Modifier
+                        .height(28.dp)
+                        .weight(1f),
+                    shape = RoundedCornerShape(50.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(color = Color(0xFFFFC23D)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = stringResource(R.string.students_studying),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp,
+                            color = Color(0xFF3347B0)
+                        )
+                    }
+                }
+
+                Card(
+                    modifier = Modifier
+                        .height(28.dp)
+                        .weight(1f),
+                    shape = RoundedCornerShape(50.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(color = Color(0xFFFFC23D)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = stringResource(R.string.finished_students),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp,
+                            color = Color(0xFF3347B0)
+                        )
+                    }
+                }
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 15.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Start
             ) {
                 Image(
                     contentDescription = "",
-                    painter = painterResource(id = R.drawable.list),
+                    painter = painterResource(id = R.drawable.hood),
                     modifier = Modifier
                         .width(35.dp)
                         .height(35.dp)
                 )
                 Text(
                     modifier = Modifier.padding(start = 5.dp),
-                    text = stringResource(R.string.courses),
+                    text = stringResource(R.string.students_list),
                     fontWeight = FontWeight.Bold,
                     fontSize = 22.sp,
                     color = Color(0xFF3347B0)
@@ -149,96 +226,43 @@ fun CoursesScreen() {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth(1f)
-                        .height(260.dp)
-                        .padding(top = 10.dp, bottom = 10.dp),
-                    border = BorderStroke(1.dp, Color(0xFFFFC23D)),
-                    shape = RoundedCornerShape(20.dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 7.dp)
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(
-                                brush = Brush.horizontalGradient(
-                                    colors = listOf(
-                                        Color(0xFF3347B0),
-                                        Color(0xFFCFD4EA)
-                                    )
-                                )
-                            )
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 25.dp, top = 20.dp, bottom = 10.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Image(
-                                contentDescription = "",
-                                painter = painterResource(R.drawable.developer),
-                                modifier = Modifier
-                                    .size(100.dp)
-                            )
-                            Text(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(start = 15.dp),
-                                text = stringResource(R.string.name_course_ds),
-                                fontSize = 80.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFFFFC23D)
-                            )
-                        }
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 25.dp),
-                            text = stringResource(R.string.name_course_complete_ds),
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Medium,
-                            color = Color.White
-                        )
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 25.dp, top = 3.dp),
-                            text = stringResource(R.string.description_course_ds),
-                            fontSize = 12.sp,
-                            color = Color.White
-                        )
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 25.dp, top = 20.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Image(
-                                contentDescription = "",
-                                painter = painterResource(R.drawable.clock_icon)
-                            )
-                            Text(
-                                modifier = Modifier
-                                    .padding(start = 3.dp),
-                                text = stringResource(R.string.semesters),
-                                fontSize = 12.sp,
-                                color = Color.White
-                            )
-                        }
-                    }
-                }
-
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth(1f)
-                        .height(260.dp)
-                        .padding(top = 10.dp, bottom = 10.dp)
+                        .height(100.dp)
+                        .padding(top = 5.dp, bottom = 5.dp)
                 ) {}
 
                 Card(
                     modifier = Modifier
                         .fillMaxWidth(1f)
-                        .height(260.dp)
-                        .padding(top = 10.dp, bottom = 10.dp)
+                        .height(100.dp)
+                        .padding(top = 5.dp, bottom = 5.dp)
+                ) {}
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth(1f)
+                        .height(100.dp)
+                        .padding(top = 5.dp, bottom = 5.dp)
+                ) {}
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth(1f)
+                        .height(100.dp)
+                        .padding(top = 5.dp, bottom = 5.dp)
+                ) {}
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth(1f)
+                        .height(100.dp)
+                        .padding(top = 5.dp, bottom = 5.dp)
+                ) {}
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth(1f)
+                        .height(100.dp)
+                        .padding(top = 5.dp, bottom = 5.dp)
                 ) {}
             }
         }
@@ -247,6 +271,6 @@ fun CoursesScreen() {
 
 @Preview(showSystemUi = true)
 @Composable
-private fun CoursesScreenPreview() {
-    CoursesScreen()
+private fun StudentsScreenPreview() {
+    StudentsScreen()
 }
