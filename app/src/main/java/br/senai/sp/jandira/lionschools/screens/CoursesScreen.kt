@@ -149,7 +149,7 @@ fun CoursesScreen() {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth(1f)
-                        .height(260.dp)
+                        .weight(1f)
                         .padding(top = 10.dp, bottom = 10.dp),
                     border = BorderStroke(1.dp, Color(0xFFFFC23D)),
                     shape = RoundedCornerShape(20.dp),
@@ -165,7 +165,7 @@ fun CoursesScreen() {
                                         Color(0xFFCFD4EA)
                                     )
                                 )
-                            )
+                            ),
                     ) {
                         Row(
                             modifier = Modifier
@@ -177,14 +177,14 @@ fun CoursesScreen() {
                                 contentDescription = "",
                                 painter = painterResource(R.drawable.developer),
                                 modifier = Modifier
-                                    .size(100.dp)
+                                    .size(70.dp)
                             )
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(start = 15.dp),
                                 text = stringResource(R.string.name_course_ds),
-                                fontSize = 80.sp,
+                                fontSize = 60.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color(0xFFFFC23D)
                             )
@@ -194,7 +194,7 @@ fun CoursesScreen() {
                                 .fillMaxWidth()
                                 .padding(start = 25.dp),
                             text = stringResource(R.string.name_course_complete_ds),
-                            fontSize = 20.sp,
+                            fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
                             color = Color.White
                         )
@@ -203,7 +203,7 @@ fun CoursesScreen() {
                                 .fillMaxWidth()
                                 .padding(start = 25.dp, top = 3.dp),
                             text = stringResource(R.string.description_course_ds),
-                            fontSize = 12.sp,
+                            fontSize = 10.sp,
                             color = Color.White
                         )
                         Row(
@@ -230,16 +230,164 @@ fun CoursesScreen() {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth(1f)
-                        .height(260.dp)
-                        .padding(top = 10.dp, bottom = 10.dp)
-                ) {}
+                        .weight(1f)
+                        .padding(top = 10.dp, bottom = 10.dp),
+                    border = BorderStroke(1.dp, Color(0xFFFFC23D)),
+                    shape = RoundedCornerShape(20.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 7.dp)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                brush = Brush.horizontalGradient(
+                                    colors = listOf(
+                                        Color(0xFF3347B0),
+                                        Color(0xFFCFD4EA)
+                                    )
+                                )
+                            ),
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp, top = 20.dp, bottom = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                contentDescription = "",
+                                painter = painterResource(R.drawable.redes),
+                                modifier = Modifier
+                                    .size(70.dp)
+                            )
+                            Text(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(start = 15.dp),
+                                text = stringResource(R.string.name_course_rds),
+                                fontSize = 60.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFFFFC23D)
+                            )
+                        }
+                        Text(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp),
+                            text = stringResource(R.string.name_course_complete_rds),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Medium,
+                            color = Color.White
+                        )
+                        Text(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp, top = 3.dp),
+                            text = stringResource(R.string.description_course_rds),
+                            fontSize = 10.sp,
+                            color = Color.White
+                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp, top = 20.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                contentDescription = "",
+                                painter = painterResource(R.drawable.clock_icon)
+                            )
+                            Text(
+                                modifier = Modifier
+                                    .padding(start = 3.dp),
+                                text = stringResource(R.string.semesters),
+                                fontSize = 12.sp,
+                                color = Color.White
+                            )
+                        }
+                    }
+                }
 
                 Card(
                     modifier = Modifier
                         .fillMaxWidth(1f)
-                        .height(260.dp)
-                        .padding(top = 10.dp, bottom = 10.dp)
-                ) {}
+                        .weight(1f)
+                        .padding(top = 10.dp, bottom = 10.dp),
+                    border = BorderStroke(1.dp, Color(0xFFFFC23D)),
+                    shape = RoundedCornerShape(20.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 7.dp)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                brush = Brush.horizontalGradient(
+                                    colors = listOf(
+                                        Color(0xFF3347B0),
+                                        Color(0xFFCFD4EA)
+                                    )
+                                )
+                            ),
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp, top = 20.dp, bottom = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                contentDescription = "",
+                                painter = painterResource(R.drawable.eletro),
+                                modifier = Modifier
+                                    .size(70.dp)
+                            )
+                            Text(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(start = 15.dp),
+                                text = stringResource(R.string.name_course_ele),
+                                fontSize = 60.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFFFFC23D)
+                            )
+                        }
+                        Text(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp),
+                            text = stringResource(R.string.name_course_complete_ele),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Medium,
+                            color = Color.White
+                        )
+                        Text(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp, top = 3.dp),
+                            text = stringResource(R.string.description_course_ele),
+                            fontSize = 10.sp,
+                            color = Color.White
+                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 25.dp, top = 20.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                contentDescription = "",
+                                painter = painterResource(R.drawable.clock_icon)
+                            )
+                            Text(
+                                modifier = Modifier
+                                    .padding(start = 3.dp),
+                                text = stringResource(R.string.semesters),
+                                fontSize = 12.sp,
+                                color = Color.White
+                            )
+                        }
+                    }
+                }
             }
         }
     }

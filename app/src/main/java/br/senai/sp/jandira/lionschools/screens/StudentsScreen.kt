@@ -1,11 +1,13 @@
 package br.senai.sp.jandira.lionschools.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -228,7 +231,105 @@ fun StudentsScreen() {
                         .fillMaxWidth(1f)
                         .height(100.dp)
                         .padding(top = 5.dp, bottom = 5.dp)
-                ) {}
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                brush = Brush.horizontalGradient(
+                                    colors = listOf(
+                                        Color(0xFFCFD4EA),
+                                        Color(0xFFB4BDE3)
+                                    )
+                                )
+                            )
+                    ) {
+                        Spacer(
+                            modifier = Modifier
+                                .fillMaxHeight()
+                                .width(15.dp)
+                                .background(color = Color(0xFFFFC23D))
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(start = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Card(
+                                modifier = Modifier
+                                    .size(50.dp),
+                                shape = RoundedCornerShape(150.dp)
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(color = Color(0xFFFFC23D)),
+                                    contentAlignment = Alignment.Center,
+                                ) {
+                                    Image(
+                                        contentDescription = "",
+                                        painter = painterResource(R.drawable.fake_student)
+                                    )
+                                }
+                            }
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxHeight()
+                                    .padding(start = 10.dp),
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                Text(
+                                    text = "Luan oliveira Dias",
+                                    color = Color.White,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 17.sp
+                                )
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Image(
+                                        modifier = Modifier
+                                            .width(15.dp)
+                                            .height(15.dp),
+                                        contentDescription = "",
+                                        painter = painterResource(R.drawable.credencial)
+                                    )
+
+                                    Text(
+                                        modifier = Modifier
+                                            .padding(start = 3.dp),
+                                        text = "28190087",
+                                        color = Color.White,
+                                        fontSize = 11.sp
+                                    )
+                                }
+                            }
+                            Row(
+                                modifier = Modifier
+                                    .padding(start = 100.dp, top = 60.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Image(
+                                    modifier = Modifier
+                                        .width(15.dp)
+                                        .height(15.dp),
+                                    contentDescription = "",
+                                    painter = painterResource(R.drawable.calendar)
+                                )
+                                Text(
+                                    modifier = Modifier
+                                        .padding(start = 2.dp),
+                                    text = "2023",
+                                    color = Color(0xFFFFC23D),
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
+                    }
+                }
 
                 Card(
                     modifier = Modifier
